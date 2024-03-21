@@ -48,6 +48,9 @@ function fetchJsonData() {
         })
         .catch(error => {
             console.error('Error fetching JSON data:', error);
+            const errorMessage = document.createElement('p');
+            errorMessage.textContent = 'Failed to load skill costs. Please try again later.';
+            document.getElementById('skill-costs').appendChild(errorMessage);
         });
 }
 
