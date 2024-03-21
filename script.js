@@ -37,11 +37,11 @@ function displaySkillCosts(jsonData) {
     });
 }
 
-// Function to fetch JSON data from the URL
 function fetchJsonData() {
-    const url = 'https://api.enterthevault.app/skill';
+    const apiUrl = 'https://api.enterthevault.app/skill';
+    const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
 
-    fetch(url)
+    fetch(proxyUrl + apiUrl)
         .then(response => response.json())
         .then(data => {
             displaySkillCosts(data);
