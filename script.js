@@ -40,16 +40,14 @@ function displaySkillCosts(jsonData) {
 function fetchJsonData() {
     const apiUrl = 'https://nameless-bastion-54521-7253a77a44ff.herokuapp.com/skill';
 
-    $.getJSON(apiUrl)
-        .done(function(data) {
-            displaySkillCosts(data);
-        })
-        .fail(function(jqxhr, textStatus, error) {
-            console.error('Error fetching JSON data:', error);
-            const errorMessage = document.createElement('p');
-            errorMessage.textContent = 'Failed to load skill costs. Please try again later.';
-            document.getElementById('skill-costs').appendChild(errorMessage);
-        });
+    $.getJSON(apiUrl, function(data) {
+        displaySkillCosts(data);
+    }).fail(function(jqxhr, textStatus, error) {
+        console.error('Error fetching JSON data:', error);
+        const errorMessage = document.createElement('p');
+        errorMessage.textContent = 'Failed to load skill costs. Please try again later.';
+        document.getElementById('skill-costs').appendChild(errorMessage);
+    });
 }
 
 // Call the function to fetch JSON data when the page loads
