@@ -39,7 +39,7 @@ function displaySkillCosts(jsonData) {
 
 function fetchJsonData() {
     const apiUrl = 'https://api.enterthevault.app/skill';
-    const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+    const proxyUrl = 'https://api.allorigins.win/get?url=';
 
     fetch(proxyUrl + apiUrl)
         .then(response => response.json())
