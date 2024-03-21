@@ -39,7 +39,7 @@ function displaySkillCosts(jsonData) {
 
 function fetchJsonData() {
     const apiUrl = 'https://api.enterthevault.app/skill';
-    const proxyUrl = 'https://api.allorigins.win/get?url=';
+    const proxyUrl = 'https://thingproxy.freeboard.io/fetch/';
 
     fetch(proxyUrl + apiUrl)
         .then(response => response.json())
