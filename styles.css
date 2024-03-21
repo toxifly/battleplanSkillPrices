@@ -1,0 +1,21 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.loadout {
+    margin-bottom: 20px;
+}
+
+.loadout h2 {
+    margin-bottom: 10px;
+}
+
+.skill {
+    margin-bottom: 5px;
+}
