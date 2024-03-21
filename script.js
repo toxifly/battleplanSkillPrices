@@ -41,7 +41,16 @@ function fetchJsonData() {
     const apiUrl = 'https://nameless-bastion-54521-7253a77a44ff.herokuapp.com/skill';
 
     $.getJSON(apiUrl, function(data) {
-        displaySkillCosts(data);
+        console.log('Received data:', data); // Log the received data
+        if (data && data.data) {
+            displaySkillCosts(data);
+        } else {
+            console.error('Invalid data format:', data);
+            const errorMessage = document.createElement('p');
+            errorMessage.textContent = 'Failed to load skill costs. Invalid data format.';
+            document.getElementById('skill-costs').innerHTML = ''; // Clear previous content
+            document.getElementById('skill-costs').appendChild(errorMessage);
+        }
     }).fail(function(jqxhr, textStatus, error) {
         console.error('Error fetching JSON data:', textStatus, error);
         const errorMessage = document.createElement('p');
