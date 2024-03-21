@@ -38,7 +38,7 @@ function displaySkillCosts(jsonData) {
 }
 
 function fetchJsonData() {
-    const apiUrl = 'https://api.enterthevault.app/skill';
+    const apiUrl = 'https://nameless-bastion-54521-7253a77a44ff.herokuapp.com/skill';
 
     $.ajax({
         url: apiUrl,
