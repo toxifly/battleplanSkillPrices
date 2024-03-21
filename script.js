@@ -39,19 +39,21 @@ function displaySkillCosts(jsonData) {
 
 function fetchJsonData() {
     const apiUrl = 'https://api.enterthevault.app/skill';
-    const proxyUrl = 'https://thingproxy.freeboard.io/fetch/';
 
-    fetch(proxyUrl + apiUrl)
-        .then(response => response.json())
-        .then(data => {
+    $.ajax({
+        url: apiUrl,
+        dataType: 'jsonp',
+        jsonpCallback: 'callback',
+        success: function(data) {
             displaySkillCosts(data);
-        })
-        .catch(error => {
+        },
+        error: function(xhr, status, error) {
             console.error('Error fetching JSON data:', error);
             const errorMessage = document.createElement('p');
             errorMessage.textContent = 'Failed to load skill costs. Please try again later.';
             document.getElementById('skill-costs').appendChild(errorMessage);
-        });
+        }
+    });
 }
 
 // Call the function to fetch JSON data when the page loads
